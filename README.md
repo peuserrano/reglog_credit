@@ -78,21 +78,18 @@ jupyter notebook notebooks/modelando_default.ipynb
 
 ## Resultados
 
-| Métrica           | Valor |
-|-------------------|-------|
-| Acurácia          | —     |
-| Precision (default) | —   |
-| Recall (default)  | —     |
-| F1-Score (default) | —    |
-| AUC-ROC           | —     |
-
-*Preencher após execução do notebook.*
+| Métrica              | Descrição |
+|----------------------|-----------|
+| Acurácia             | Proporção total de previsões corretas. Enganosa em datasets desbalanceados — um modelo que nunca prevê default já atingiria ~75% de acurácia. |
+| Precision (default)  | Dos clientes classificados como default, quantos realmente foram? Alta precision = poucos falsos alarmes (aprovações negadas indevidamente). |
+| Recall (default)     | Dos clientes que realmente entraram em default, quantos o modelo identificou? Alto recall = menos defaults passando desapercebidos. |
+| F1-Score (default)   | Média harmônica entre Precision e Recall. Útil quando há trade-off entre os dois — penaliza modelos que otimizam só um lado. |
+| AUC-ROC              | Área sob a curva ROC. Mede a capacidade de separação entre classes independente do threshold. 1.0 = perfeito, 0.5 = aleatório. |
 
 ## Limitações Conhecidas
 
-- Sem cross-validation ou tuning de hiperparâmetros
-- Desbalanceamento de classes não tratado com resampling (SMOTE/undersampling)
-- Apenas regressão logística avaliada (sem comparação com outros modelos)
+- Sem análise de threshold ótimo (o padrão 0.5 raramente é o melhor para crédito)
+- Sem análise de feature importance por permutação (mais robusta que coeficientes)
 
 ## Dependências Principais
 
